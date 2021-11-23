@@ -1,4 +1,4 @@
-name: 'ACI Container Operations'
+name: 'AzContainerOperations-Action'
 description: 'Start, stop and restart containers from the Azure Container Instances'
 author: 'klacol'
 branding:
@@ -21,7 +21,7 @@ inputs:
     description: 'The name of the container, on which to commands shall be applied, eg. my-container'
     required: true
   command:
-    description: 'The name of the command to run. One of start, stop or restart.'
+    description: 'The name of the command to run. One of start, stop or restart'
     required: true
 runs:
   using: 'docker'
