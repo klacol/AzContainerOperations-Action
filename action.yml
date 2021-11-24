@@ -27,9 +27,9 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.containerName }}
+    - ${{ inputs.container-name }}
     - ${{ inputs.command }}
     - ${{ inputs.tenant }}
-    - ${{ inputs.resourceGroup }}
+    - ${{ inputs.resource-group }}
     - ${{ inputs.username }}
     - ${{ inputs.password }}
