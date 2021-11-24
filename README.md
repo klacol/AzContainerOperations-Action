@@ -1,13 +1,13 @@
 # Azure Container Instance Operations
 ## Description
 
-An action to start, stop and restart containers from the Azure Container Instances using the [az container command](https://docs.microsoft.com/de-de/cli/azure/container?view=azure-cli-latest).
+A [Github Action](https://github.com/features/actions) to start, stop and restart containers in the Azure Container Instances (ACI) using the [az container command](https://docs.microsoft.com/de-de/cli/azure/container?view=azure-cli-latest).
 
 ## Inputs
 
 | Parameter | Description | Required | Default |
 | - | - | - | - |
-| container-name | The name of the container, on which to commands shall be applied, eg. `my-container` | `true` | N/A |
+| container-name | The name of the container, to which to commands shall be applied, eg. `my-container` | `true` | N/A |
 | command | The name of the command to run. One of `start`, `stop` or `restart`.  | `true` | N/A |
 | tenant | Azure Service Principal Tenant ID | `true` | N/A |
 | resource-group | The name of the resource group of the container, e.g. `my.resource.group` | `true`  | N/A  |
