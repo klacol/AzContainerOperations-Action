@@ -9,9 +9,9 @@ An action to start, stop and restart containers from the Azure Container Instanc
 | - | - | - | - |
 | container-name | The name of the container, on which to commands shall be applied, eg. `my-container` | `true` | N/A |
 | command | The name of the command to run. One of `start`, `stop` or `restart`.  | `true` | N/A |
+| tenant | Azure Service Principal Tenant ID | `true` | N/A |
 | resource-group | The name of the resource group of the container, e.g. `my.resource.group` | `true`  | N/A  |
 | username | Azure Service Principal Username | `true` | N/A |
-| tenant | Azure Service Principal Tenant ID | `true` | N/A |
 | password | Azure Service Principal Token | `true` | N/A |
 
 
@@ -32,32 +32,32 @@ jobs:
         resource-group: 'my.resource.group'
     steps:
     - name: Start Container
-      uses: klacol/Aci-Operations-Action@master
+      uses: klacol/AzContainerOperations-Action@v2
       with:
-        tenant: ${{ secrets.SP_TENANT }}
-        username: ${{ secrets.SP_USERNAME }}
-        password: ${{ secrets.SERVICE_PRINCIPAL_TOKEN }}
-        resource-group: ${{ env.resource-group }}
         container-name: ${{ env.container-name }}
         command: 'start'
-    - name: Stop Container
-      uses: klacol/Aci-Operations-Action@master
-      with:
         tenant: ${{ secrets.SP_TENANT }}
         username: ${{ secrets.SP_USERNAME }}
         password: ${{ secrets.SERVICE_PRINCIPAL_TOKEN }}
         resource-group: ${{ env.resource-group }}
+    - name: Stop Container
+      uses: klacol/AzContainerOperations-Action@v2
+      with:
         container-name: ${{ env.container-name }}
         command: 'stop'
-    - name: Restart Container
-      uses: klacol/Aci-Operations-Action@master
-      with:
         tenant: ${{ secrets.SP_TENANT }}
         username: ${{ secrets.SP_USERNAME }}
         password: ${{ secrets.SERVICE_PRINCIPAL_TOKEN }}
         resource-group: ${{ env.resource-group }}
+    - name: Restart Container
+      uses: klacol/AzContainerOperations-Action@v2
+      with:
         container-name: ${{ env.container-name }}
         command: 'restart'
+        tenant: ${{ secrets.SP_TENANT }}
+        username: ${{ secrets.SP_USERNAME }}
+        password: ${{ secrets.SERVICE_PRINCIPAL_TOKEN }}
+        resource-group: ${{ env.resource-group }}
 
 ```
 

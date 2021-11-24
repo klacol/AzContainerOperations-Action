@@ -2,7 +2,7 @@ name: Update README
 on:
   workflow_dispatch:
   push:
-    branches: [ master ]
+    branches: [ main ]
 jobs:
   update-readme:
     runs-on: [ubuntu-latest]
