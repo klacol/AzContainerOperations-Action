@@ -14,3 +14,5 @@ Write-Host "command:"$command
 Write-Host "containerName:"$containerName
 
 az container $command --name $containerName --resource-group $resourceGroup
+
+Write-Host "Ok, done!"
