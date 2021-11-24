@@ -14,9 +14,11 @@ An action to start, stop and restart containers from the Azure Container Instanc
 | username | Azure Service Principal Username | `true` | N/A |
 | password | Azure Service Principal Token | `true` | N/A |
 
-
-
 ## Example Usage
+
+The following example shows how to configure each action. It is good practice to [store the credentials as encrypted secrets in GitHub](https://docs.github.com/en/actions/security-guides/encrypted-secrets). This applies in the example to the parameters for ```tenant```, ```username``` and ```password```.
+
+To be able to reuse the parameters for ```resource-group``` and ```container-name``` in all three commands, they are created as environment variables.
 
 ```yaml
 name: Azure Container Instance Operations
@@ -36,28 +38,28 @@ jobs:
       with:
         container-name: ${{ env.container-name }}
         command: 'start'
-        tenant: ${{ secrets.SP_TENANT }}
-        username: ${{ secrets.SP_USERNAME }}
-        password: ${{ secrets.SERVICE_PRINCIPAL_TOKEN }}
+        tenant: ${{ secrets.SERVICE_PRINCIPAL_TENANT }}
         resource-group: ${{ env.resource-group }}
+        username: ${{ secrets.SERVICE_PRINCIPAL_USERNAME }}
+        password: ${{ secrets.SERVICE_PRINCIPAL_TOKEN }}
     - name: Stop Container
       uses: klacol/AzContainerOperations-Action@v1
       with:
         container-name: ${{ env.container-name }}
         command: 'stop'
-        tenant: ${{ secrets.SP_TENANT }}
-        username: ${{ secrets.SP_USERNAME }}
-        password: ${{ secrets.SERVICE_PRINCIPAL_TOKEN }}
         resource-group: ${{ env.resource-group }}
+        tenant: ${{ secrets.SERVICE_PRINCIPAL_TENANT }}
+        username: ${{ secrets.SERVICE_PRINCIPAL_USERNAME }}
+        password: ${{ secrets.SERVICE_PRINCIPAL_TOKEN }}
     - name: Restart Container
       uses: klacol/AzContainerOperations-Action@v1
       with:
         container-name: ${{ env.container-name }}
         command: 'restart'
-        tenant: ${{ secrets.SP_TENANT }}
-        username: ${{ secrets.SP_USERNAME }}
-        password: ${{ secrets.SERVICE_PRINCIPAL_TOKEN }}
+        tenant: ${{ secrets.SERVICE_PRINCIPAL_TENANT }}
         resource-group: ${{ env.resource-group }}
+        username: ${{ secrets.SERVICE_PRINCIPAL_USERNAME }}
+        password: ${{ secrets.SERVICE_PRINCIPAL_TOKEN }}
 
 ```
 
