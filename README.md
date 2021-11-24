@@ -32,7 +32,7 @@ jobs:
         resource-group: 'my.resource.group'
     steps:
     - name: Start Container
-      uses: klacol/AzContainerOperations-Action@main
+      uses: klacol/AzContainerOperations-Action@v1
       with:
         container-name: ${{ env.container-name }}
         command: 'start'
@@ -41,7 +41,7 @@ jobs:
         password: ${{ secrets.SERVICE_PRINCIPAL_TOKEN }}
         resource-group: ${{ env.resource-group }}
     - name: Stop Container
-      uses: klacol/AzContainerOperations-Action@main
+      uses: klacol/AzContainerOperations-Action@v1
       with:
         container-name: ${{ env.container-name }}
         command: 'stop'
@@ -50,7 +50,7 @@ jobs:
         password: ${{ secrets.SERVICE_PRINCIPAL_TOKEN }}
         resource-group: ${{ env.resource-group }}
     - name: Restart Container
-      uses: klacol/AzContainerOperations-Action@main
+      uses: klacol/AzContainerOperations-Action@v1
       with:
         container-name: ${{ env.container-name }}
         command: 'restart'
