@@ -29,6 +29,6 @@ RUN ln -s /opt/microsoft/powershell/7/pwsh /usr/bin/pwsh
 
 ADD entrypoint.sh  /entrypoint.sh
 RUN chmod +x /entrypoint.sh
-ADD purge.ps1  /purge.ps1
+ADD aci-command.ps1  /aci-command.ps1
 
 ENTRYPOINT ["/entrypoint.sh"]
